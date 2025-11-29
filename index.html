@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exil.Dev</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+    body {
+        background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+        color: #f5f5f5;
+        min-height: 100vh;
+    }
+
+    header {
+        background: linear-gradient(90deg, #111, #222);
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    header h1 { font-size: 1.8rem; letter-spacing: 1px; }
+
+    nav {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    nav button {
+        background: #333;
+        border: none;
+        color: #f5f5f5;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.2s all;
+    }
+
+    nav button:hover { background: #555; }
+
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: #f5f5f5;
+        border-radius: 2px;
+    }
+
+    @media(max-width: 768px) {
+        nav { display: none; flex-direction: column; width: 100%; }
+        nav.active { display: flex; }
+        .menu-toggle { display: flex; }
+    }
+
+    main { padding: 3rem; max-width: 1400px; margin: auto; }
+
+    section { display: none; animation: fadeIn 0.3s ease-in-out; }
+    section.active { display: block; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3rem;
+        background: linear-gradient(135deg, #111, #222);
+        padding: 3rem 2rem;
+        border-radius: 15px;
+        margin-bottom: 3rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .profile img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 3px solid #777; margin-bottom: 1rem; }
+
+    .profile-info h2 { font-size: 3rem; margin-bottom: 1.5rem; font-weight: 300; letter-spacing: 1px; }
+    .profile-info h4 { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 300; }
+    .profile-info p { margin-bottom: 1.5rem; line-height: 1.6; max-width: 700px; }
+    .profile-info ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .profile-info ul li { background: linear-gradient(135deg, #333, #555); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;     }
+
+    .project-category { margin-bottom: 2rem; }
+    .project-category h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #555;
+        padding-bottom: 0.3rem;
+    }
+
+    .project-container { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1rem; }
+
+    .project {
+        background: linear-gradient(135deg, #1a1a1a, #111);
+        padding: 1rem;
+        border-radius: 8px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project:hover { transform: translateY(-5px); box-shadow: 0 0 15px #222; }
+
+    .project h4 { font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .project p { margin-bottom: 0.5rem; }
+
+    .project button {
+        background: linear-gradient(135deg, #333, #111);
+        border: none;
+        color: #f5f5f5;
+        padding: 0.3rem 0.7rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.2s all;
+        margin-right: 0.3rem;
+        margin-top: 0.5rem;
+    }
+
+    .project button:hover { background: linear-gradient(135deg, #555, #222); }
+
+    .specializations, .languages {
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .specializations h3, .languages h3 { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 300; }
+    .specializations ul, .languages ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .specializations ul li, .languages ul li { background: linear-gradient(135deg, #333, #555); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; }
+    .contact-container {
+        text-align: center;
+        background: linear-gradient(135deg, #111, #222);
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .contact-container h3 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 300; }
+
+    .contact {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .contact a {
+        display: inline-block;
+        background: linear-gradient(135deg, #333, #111);
+        padding: 1rem 2rem;
+        color: #f5f5f5;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.2s all;
+        font-size: 1.1rem;
+    }
+
+    .contact a:hover { background: linear-gradient(135deg, #555, #222); transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Exil.Dev</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav id="nav">
+        <button onclick="showSection('about')">About Me</button>
+        <button onclick="showSection('projects')">Projects</button>
+        <button onclick="showSection('contact')">Contact</button>
+    </nav>
+</header>
+
+ <main>
+     <section id="about" class="active">
+        <div class="profile">
+            <img src="Content/ProfilePicture.webp" alt="Profile Picture">
+            <div class="profile-info">
+                <h2>Exil_S</h2>
+                <p>18 y/o · German · Nerdy Coder</p>
+                <p>I love developing projects in C# and C++. Coding has grown from a childhood interest into something I’m passionate about building tools, experimenting with systems, and creating projects across different platforms.</p>
+            </div>
+            <div class="specializations">
+                <h3>Specializations</h3>
+                <ul>
+                    <li>Games</li>
+                    <li>Servers</li>
+                    <li>Bots</li>
+                    <li>VSTs</li>
+                    <li>Desktop apps</li>
+                </ul>
+            </div>
+            <div class="languages">
+                <h3>Languages</h3>
+                <ul>
+                    <li>C#</li>
+                    <li>C++</li>
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>Web Technologies (HTML/CSS)</li>
+                </ul>
+            </div>
+        </div>
+     </section>
+
+     <section id="projects">
+        <div id="project-content"></div>
+     </section>
+
+     <section id="contact">
+        <div class="contact-container">
+            <h3>Contact</h3>
+            <div class="contact">
+                <a id="email-link"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://discord.gg/yjyvpDHPck" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+ <script>
+     function showSection(id) {
+        document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if(window.innerWidth < 768) toggleMenu(false);
+     }
+
+     function toggleMenu(forceClose=false) {
+        const nav = document.getElementById('nav');
+        if(forceClose) { nav.classList.remove('active'); return; }
+        nav.classList.toggle('active');
+     }
+
+     const projects = [
+        {
+            category: "Games & Mods",
+            items: [
+                { name: "VigilModManager", desc: "A mod manager created for Vigil to support early modding efforts.", github:"https://github.com/ExilProductions/VigilModManager", game:"https://store.steampowered.com/app/3817090/Vigil/"},
+                { name: "SprintMod", desc: "Adds a sprinting mechanic to An Unfinished Game.", github:"https://github.com/ExilProductions/SprintMod", game:"https://store.steampowered.com/app/2919990/An_Unfinished_Game/"},
+            ]
+        },
+        {
+            category: "C# Packages",
+            items: [
+                { name: "AddonLib", desc: "A library for adding user-generated addons to native C# applications.", github:"https://github.com/ExilProductions/AddonLib" },
+                { name: "PhysNet", desc: "A physics library written entirely in native C#.", github:"https://github.com/ExilProductions/PhysNet" },
+            ]
+        },
+        {
+            category: "Services",
+            items: [
+                { name: "PurrLobby", desc: "A free alternative lobby service for PurrNet.", github:"https://github.com/ExilProductions/PurrLobby" },
+            ]
+        },
+        {
+            category: "Tools",
+            items: [
+                { name: "AssemblyInspector", desc: "A tool for exporting the API of managed assemblies to XML.", github:"https://github.com/ExilProductions/AssemblyInspector" },
+                { name: "OpenVR-SpaceCalibrator", desc: "Enables use of OpenVR-SpaceCalibrator on Linux.", github:"https://github.com/ExilProductions/OpenVR-SpaceCalibrator" },
+            ]
+        },
+        {
+            category: "Misc",
+            items: [
+                { name: "WindowEvader", desc: "A Windows-only program that makes windows run away from your cursor.", github:"https://github.com/ExilProductions/WindowEvader" },
+            ]
+        }
+     ];
+
+     const container = document.getElementById('project-content');
+    projects.forEach(cat => {
+        const catDiv = document.createElement('div');
+        catDiv.className = 'project-category';
+        catDiv.innerHTML = `<h3>${cat.category}</h3><div class="project-container"></div>`;
+        const inner = catDiv.querySelector('.project-container');
+        cat.items.forEach(proj => {
+            const projDiv = document.createElement('div');
+            projDiv.className = 'project';
+            projDiv.innerHTML = `<h4>${proj.name}</h4><p>${proj.desc}</p>`;
+            if(proj.github) projDiv.innerHTML += `<button onclick="window.open('${proj.github}','_blank')">GitHub</button>`;
+            if(proj.game) projDiv.innerHTML += `<button onclick="window.open('${proj.game}','_blank')">Game</button>`;
+            inner.appendChild(projDiv);
+        });
+        container.appendChild(catDiv);
+     });
+
+     var mailto = String.fromCharCode(109, 97, 105, 108, 116, 111, 58);
+     document.getElementById('email-link').href = mailto + 'exil.productions.business' + String.fromCharCode(64) + 'gmail.com';
+</script>
+
+</body>
+</html>
