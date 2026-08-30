@@ -1,0 +1,106 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    color: #f5f5f5;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(90deg, #111, #222);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 { font-size: 1.8rem; letter-spacing: 1px; }
+
+nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+nav a {
+    background: #333;
+    border: none;
+    color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s all;
+    text-decoration: none;
+}
+
+nav a:hover { background: #555; }
+
+main { padding: 3rem; max-width: 1400px; margin: auto; }
+
+h2 {
+    font-size: 2.6rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #bbb;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.rule {
+    background: linear-gradient(135deg, #1a1a1a, #111);
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+}
+
+.rule h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #555;
+    padding-bottom: 0.3rem;
+}
+
+.rule p, .rule li { line-height: 1.6; color: #ccc; }
+.rule ul { padding-left: 1.5rem; margin-top: 0.5rem; }
+.rule li { margin-bottom: 0.4rem; }
+
+.good { color: #7bd88f; font-weight: 600; }
+.bad { color: #f08a8a; font-weight: 600; }
+
+.example {
+    background: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 0.9rem 1.2rem;
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.example .label { margin-right: 0.6rem; font-weight: 600; }
+.example.bad-example { border-left: 3px solid #f08a8a; }
+.example.good-example { border-left: 3px solid #7bd88f; }
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+footer a { color: #8ab4f8; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media(max-width: 768px) {
+    main { padding: 2rem 1rem; }
+    .subtitle { margin-bottom: 2rem; }
+    header { flex-direction: column; gap: 0.5rem; text-align: center; }
+    nav { flex-wrap: wrap; justify-content: center; }
+}

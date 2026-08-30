@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Behavior · Exil.Dev</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+    body {
+        background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+        color: #f5f5f5;
+        min-height: 100vh;
+    }
+
+    header {
+        background: linear-gradient(90deg, #111, #222);
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    header h1 { font-size: 1.8rem; letter-spacing: 1px; }
+
+    nav {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        background: #333;
+        border: none;
+        color: #f5f5f5;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.2s all;
+        text-decoration: none;
+    }
+
+    nav a:hover { background: #555; }
+
+    main { padding: 3rem; max-width: 1400px; margin: auto; }
+
+    h2 {
+        font-size: 2.6rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #bbb;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+    }
+
+    .rule {
+        background: linear-gradient(135deg, #1a1a1a, #111);
+        padding: 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 1.2rem;
+    }
+
+    .rule h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+        border-bottom: 1px solid #555;
+        padding-bottom: 0.3rem;
+    }
+
+    .rule p, .rule li { line-height: 1.6; color: #ccc; }
+    .rule ul { padding-left: 1.5rem; margin-top: 0.5rem; }
+    .rule li { margin-bottom: 0.4rem; }
+
+    .good { color: #7bd88f; font-weight: 600; }
+    .bad { color: #f08a8a; font-weight: 600; }
+
+    .example {
+        background: #1a1a1a;
+        border: 1px solid #3a3a3a;
+        border-radius: 8px;
+        padding: 0.9rem 1.2rem;
+        margin-top: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .example .label { margin-right: 0.6rem; font-weight: 600; }
+    .example.bad-example { border-left: 3px solid #f08a8a; }
+    .example.good-example { border-left: 3px solid #7bd88f; }
+
+    footer {
+        text-align: center;
+        padding: 2rem;
+        color: #777;
+        font-size: 0.9rem;
+    }
+
+    footer a { color: #8ab4f8; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media(max-width: 768px) {
+        main { padding: 2rem 1rem; }
+        .subtitle { margin-bottom: 2rem; }
+        header { flex-direction: column; gap: 0.5rem; text-align: center; }
+        nav { flex-wrap: wrap; justify-content: center; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Online Behavior</h1>
+    <nav>
+        <a href="../index.html">Back to Exil.Dev</a>
+    </nav>
+</header>
+
+<main>
+
+    <h2>How to Talk on the Internet</h2>
+    <p class="subtitle">Most online confusion and wasted time comes from how people ask and respond, not the topic itself. These are common community practices that keep conversations helpful and clear. Follow them and people will want to help you.</p>
+
+    <div class="rule">
+        <h3>Don't Ask to Ask: Just Ask</h3>
+        <p>"Can I ask a question?" adds nothing. It makes helpers wait for a second message before they can even see the problem. Ask the real question directly, with all the needed details.</p>
+        <div class="example bad-example"><span class="label bad">Instead of:</span> "can i ask a question?"</div>
+        <div class="example good-example"><span class="label good">Say:</span> "I'm getting an error when I run my server. Can anyone tell me what this means?"</div>
+    </div>
+
+    <div class="rule">
+        <h3>Don't Say "Hello" and Wait</h3>
+        <p>Sending just "hello", "hi", or "anyone here?" and waiting for a reply before typing the actual question makes helpers play a guessing game. They don't know what you want, so most will simply ignore or reply with "hello" and then wait for you. Put the question in the same message.</p>
+        <div class="example bad-example"><span class="label bad">Instead of:</span> "hello?" ... "are you there?" ... "i have a question about C#."</div>
+        <div class="example good-example"><span class="label good">Say:</span> "Hello! I'm trying to overload an operator in C# but the compiler says it must be public and static. What am I missing?"</div>
+    </div>
+
+    <div class="rule">
+        <h3>Explain the Goal, Not Just the Task (The XY Problem)</h3>
+        <p>If you ask about how to do something without saying what you're trying to achieve, helpers may solve the wrong thing and you'll go in circles. State your end goal up front. The thing you think you need might not be the best way to reach it.</p>
+        <div class="example bad-example"><span class="label bad">Instead of:</span> "How do I make a cron job parse a JSON file every minute?"</div>
+        <div class="example good-example"><span class="label good">Say:</span> "I want my dashboard to refresh its data every minute. I thought cron and a parser might work, but is there a simpler approach?"</div>
+    </div>
+
+    <div class="rule">
+        <h3>Give Context: Code, Errors, and What You Tried</h3>
+        <p>Vague questions get vague answers. When asking for help, include what you're using, the relevant code or full error message, and what you've already tried. This saves everyone time and lets helpers spot the problem instead of guessing.</p>
+        <ul>
+            <li>Paste the exact error text, not "it broke".</li>
+            <li>Include versions (language, framework, OS) when relevant.</li>
+            <li>Say what you already tried and what happened.</li>
+        </ul>
+    </div>
+
+    <div class="rule">
+        <h3>Be Specific and Don't Rely on "You Know..."</h3>
+        <p>Avoid vague references, pronouns without clear meaning, or expecting people to read your mind. Nobody can answer "you know, that thing" or "I can't quite explain it". Name things clearly.</p>
+        <div class="example bad-example"><span class="label bad">Instead of:</span> "My thing doesn't work. You know, the thing I mentioned. Can you fix it?"</div>
+        <div class="example good-example"><span class="label good">Say:</span> "The parse function on line 42 throws an exception when the input has trailing spaces."</div>
+    </div>
+
+    <div class="rule">
+        <h3>Wait Before Repeating or Bumping</h3>
+        <p>People have lives and may be in different time zones. Don't send "anyone??" five minutes after your first message. Give it time. A reasonable wait is hours, not minutes. If it's urgent, that urgency belongs in the first message, not as pestering.</p>
+    </div>
+
+    <div class="rule">
+        <h3>Know When to Move On</h3>
+        <p>Not every question gets an answer, and that's fine. Search the docs, search past conversations, and try things yourself first. A community is more likely to help someone who clearly tried than someone who pasted their homework and left.</p>
+    </div>
+
+    <div class="rule">
+        <h3>Don't Spread Misinformation</h3>
+        <p>Only answer with confidence when you actually know. If you're not sure, say so, for example "I'm not 100% sure, but I think...". Never present a guess as a fact. Wrong answers spread fast, get repeated, and cause real confusion and harm. It's always better to say "I don't know" than to sound correct while being wrong.</p>
+    </div>
+
+    <div class="rule">
+        <h3>Be Respectful and Keep It Civil</h3>
+        <p>Tone is easy to misread in text. Avoid all-caps, sarcasm, and insults. Disagree with ideas, not people. If someone misunderstands you, clarify calmly instead of escalating. A little patience turns arguments into conversations.</p>
+    </div>
+
+</main>
+
+<footer>
+    <p>Part of <a href="../index.html">Exil.Dev</a>.</p>
+</footer>
+
+</body>
+</html>
