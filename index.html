@@ -1,78 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exil.Dev</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exil.Dev</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<header>
-    <h1>Exil.Dev</h1>
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav id="nav">
-        <button onclick="showSection('about')">About Me</button>
-        <button onclick="showSection('projects')">Projects</button>
-        <button onclick="showSection('contact')">Contact</button>
-        <button onclick="window.location.href='onlinebehavior/'">Online Behavior</button>
-    </nav>
-</header>
-
- <main>
-     <section id="about" class="active">
-        <div class="profile">
-            <img src="Content/ProfilePicture.webp" alt="Profile Picture">
-            <div class="profile-info">
-                <h2>Exil_S</h2>
-                <p>18 y/o · German · Nerdy Coder</p>
-                <p>I love developing projects in C# and C++. Coding has grown from a childhood interest into something I’m passionate about building tools, experimenting with systems, and creating projects across different platforms.</p>
-            </div>
-            <div class="specializations">
-                <h3>Specializations</h3>
-                <ul>
-                    <li>Games</li>
-                    <li>Servers</li>
-                    <li>Bots</li>
-                    <li>VSTs</li>
-                    <li>Desktop apps</li>
-                </ul>
-            </div>
-            <div class="languages">
-                <h3>Languages</h3>
-                <ul>
-                    <li>C#</li>
-                    <li>C++</li>
-                    <li>Python</li>
-                    <li>JavaScript</li>
-                    <li>Web Technologies (HTML/CSS)</li>
-                </ul>
-            </div>
+    <header>
+        <h1>Exil.Dev</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-     </section>
+        <nav id="nav">
+            <button onclick="showSection('about')">About Me</button>
+            <button onclick="showSection('projects')">Projects</button>
+            <button onclick="showSection('contact')">Contact</button>
+            <button onclick="window.location.href='onlinebehavior/'">Online Behavior</button>
+        </nav>
+    </header>
 
-     <section id="projects">
-        <div id="project-content"></div>
-     </section>
-
-     <section id="contact">
-        <div class="contact-container">
-            <h3>Contact</h3>
-            <div class="contact">
-                <a id="email-link"><i class="fas fa-envelope"></i> Email</a>
-                <a href="https://discord.gg/yjyvpDHPck" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+    <main>
+        <section id="about" class="active">
+            <div class="profile">
+                <img src="Content/ProfilePicture.webp" alt="Profile Picture" />
+                <div class="profile-info">
+                    <h2>Exil_S</h2>
+                    <p>18 y/o · German · Nerdy Coder</p>
+                    <p>I love developing projects in C# and C++. Coding has grown from a childhood interest into something I'm passionate about building tools, experimenting with systems, and creating projects across different platforms.</p>
+                </div>
+                <div class="specializations">
+                    <h3>Specializations</h3>
+                    <ul>
+                        <li>Games</li>
+                        <li>Servers</li>
+                        <li>Bots</li>
+                        <li>VSTs</li>
+                        <li>Desktop apps</li>
+                    </ul>
+                </div>
+                <div class="languages">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>C#</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>Web Technologies (HTML/CSS)</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
 
- <script src="js/main.js"></script>
- <script src="js/repos.js"></script>
+        <section id="projects">
+            <div id="stats-content"></div>
+            <div id="project-content"></div>
+            <div id="starred-content"></div>
+            <div id="contributed-content"></div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-container">
+                <h3>Contact</h3>
+                <div class="contact">
+                    <a id="email-link"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://discord.gg/yjyvpDHPck" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/repos.js"></script>
 
 </body>
 </html>
