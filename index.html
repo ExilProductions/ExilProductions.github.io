@@ -11,15 +11,7 @@
 
     <header>
         <h1>Exil.Dev</h1>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav id="nav">
-            <button onclick="showSection('about')">About Me</button>
-            <button onclick="showSection('projects')">Projects</button>
-            <button onclick="showSection('contact')">Contact</button>
+        <nav>
             <button onclick="window.location.href='onlinebehavior/'">Online Behavior</button>
         </nav>
     </header>
@@ -30,9 +22,11 @@
                 <img src="Content/ProfilePicture.webp" alt="Profile Picture" />
                 <div class="profile-info">
                     <h2>Exil_S</h2>
-                    <p>18 y/o · German · Nerdy Coder</p>
+                    <p>19 y/o · German · Nerdy Coder</p>
                     <p>I love developing projects in C# and C++. Coding has grown from a childhood interest into something I'm passionate about building tools, experimenting with systems, and creating projects across different platforms.</p>
                 </div>
+            </div>
+            <div class="cards boxes">
                 <div class="specializations">
                     <h3>Specializations</h3>
                     <ul>
@@ -56,7 +50,14 @@
             </div>
         </section>
 
+        <section id="sets">
+            <h2 class="section-title"><i class="fas fa-headphones"></i> Sets</h2>
+            <div id="sets-content"></div>
+        </section>
+
         <section id="projects">
+            <h2 class="section-title"><i class="fas fa-code"></i> Projects</h2>
+            <p class="section-subtitle">Latest work, most starred repos, and where I contribute on GitHub.</p>
             <div id="stats-content"></div>
             <div id="project-content"></div>
             <div id="starred-content"></div>
@@ -64,8 +65,9 @@
         </section>
 
         <section id="contact">
+            <h2 class="section-title"><i class="fas fa-paper-plane"></i> Contact</h2>
             <div class="contact-container">
-                <h3>Contact</h3>
+                <p class="section-subtitle">Want to reach out? I'm happy to talk about projects or anything else.</p>
                 <div class="contact">
                     <a id="email-link"><i class="fas fa-envelope"></i> Email</a>
                     <a href="https://discord.gg/yjyvpDHPck" target="_blank"><i class="fab fa-discord"></i> Discord</a>
@@ -76,6 +78,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/repos.js"></script>
+    <script src="js/sets.js"></script>
 
 </body>
 </html>

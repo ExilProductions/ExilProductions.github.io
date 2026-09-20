@@ -7,14 +7,17 @@
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
+    :root { color-scheme: dark; }
+
     body {
-        background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-        color: #f5f5f5;
+        background: #000;
+        color: #e8e8e8;
         min-height: 100vh;
     }
 
     header {
-        background: linear-gradient(90deg, #111, #222);
+        background: #050505;
+        border-bottom: 1px solid #161616;
         padding: 1rem 2rem;
         display: flex;
         align-items: center;
@@ -32,9 +35,9 @@
     }
 
     nav a {
-        background: #333;
-        border: none;
-        color: #f5f5f5;
+        background: #0c0c0c;
+        border: 1px solid #1c1c1c;
+        color: #cfcfcf;
         padding: 0.5rem 1rem;
         cursor: pointer;
         border-radius: 5px;
@@ -42,7 +45,7 @@
         text-decoration: none;
     }
 
-    nav a:hover { background: #555; }
+    nav a:hover { background: #191919; color: #fff; border-color: #333; }
 
     main { padding: 3rem; max-width: 1400px; margin: auto; }
 
@@ -62,7 +65,8 @@
     }
 
     .rule {
-        background: linear-gradient(135deg, #1a1a1a, #111);
+        background: #080808;
+        border: 1px solid #191919;
         padding: 1.2rem;
         border-radius: 8px;
         margin-bottom: 1.2rem;
@@ -71,11 +75,11 @@
     .rule h3 {
         font-size: 1.5rem;
         margin-bottom: 0.8rem;
-        border-bottom: 1px solid #555;
+        border-bottom: 1px solid #1c1c1c;
         padding-bottom: 0.3rem;
     }
 
-    .rule p, .rule li { line-height: 1.6; color: #ccc; }
+    .rule p, .rule li { line-height: 1.6; color: #bbb; }
     .rule ul { padding-left: 1.5rem; margin-top: 0.5rem; }
     .rule li { margin-bottom: 0.4rem; }
 
@@ -83,8 +87,8 @@
     .bad { color: #f08a8a; font-weight: 600; }
 
     .example {
-        background: #1a1a1a;
-        border: 1px solid #3a3a3a;
+        background: #0a0a0a;
+        border: 1px solid #222;
         border-radius: 8px;
         padding: 0.9rem 1.2rem;
         margin-top: 0.8rem;
