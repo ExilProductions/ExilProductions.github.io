@@ -1,7 +1,6 @@
 const ORGS = [
     { type: 'orgs', account: 'ExilProductions' },
-    { type: 'users', account: 'SimonSeider' },
-    { type: 'orgs', account: 'Stoarp' }
+    { type: 'users', account: 'SimonSeider' }
 ];
 
 const LIMIT_PER_SOURCE = 6;
